@@ -1,17 +1,23 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
+        
+        map <int,int> hash;
+        for(int i=0;i<nums.size();i++)
+        { 
+           hash[nums[i]]=i;
+        }
 
         for(int i=0;i<nums.size();i++)
-        {   int current_sum=nums[i];
-            for(int j=i+1;j<nums.size();j++)
-            {
-              
-              if(current_sum+nums[j]==target)
-                 return {i,j};
-               
-            }
+        {
+            if (auto it = hash.find(target-nums[i]); it != hash.end()&&it->second != i)
+             {
+        
+               return {i,hash[target-nums[i]]};
         }
-        return {0};
-    }
+        }
+        return {};
+
+            }
+                
 };
