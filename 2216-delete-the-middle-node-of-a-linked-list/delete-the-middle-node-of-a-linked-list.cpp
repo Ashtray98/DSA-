@@ -31,7 +31,8 @@ public:
         {
             prev=temp;
             temp=temp->next;
-        
+            if(temp->next==nullptr)
+             break;
         }
         prev->next=temp->next;
 
