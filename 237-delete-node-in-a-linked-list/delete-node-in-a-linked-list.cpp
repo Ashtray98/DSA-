@@ -12,7 +12,9 @@ public:
         
     
         Node->val=Node->next->val;
-        Node->next=Node->next->next;
+        ListNode *temp=Node->next;
+        Node->next=temp->next;
+        delete(temp);
     
         }
     
