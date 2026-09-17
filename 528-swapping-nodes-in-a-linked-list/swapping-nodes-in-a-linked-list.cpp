@@ -12,23 +12,23 @@ class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
 
-        ListNode *temp=head;
+    
+        ListNode *slow=head;
+        ListNode *fast=head;
         ListNode *temp2=head;
-
         for(int i=1;i<k;i++)
-            temp=temp->next;
+            fast=fast->next;
 
-        ListNode *fast=temp;
-        temp2=head;
+        temp2=fast;
 
         while(fast->next!=nullptr)
         {
             fast=fast->next;
-            temp2=temp2->next;
+            slow=slow->next;
         }
 
-        int value=temp->val;
-        temp->val=temp2->val;
+        int value=slow->val;
+        slow->val=temp2->val;
         temp2->val=value;
 
         return head;
